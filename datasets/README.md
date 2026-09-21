@@ -30,6 +30,8 @@ It demonstrates:
 
 **[→ View Response Evaluation Dataset](response-evaluation/)**
 
+**[→ Open CSV Dataset](response-evaluation/response_evaluation.csv)**
+
 ---
 
 ### Data Quality Evaluation Dataset
@@ -49,6 +51,8 @@ It demonstrates:
 - Data quality assurance
 
 **[→ View Data Quality Dataset](data-quality/)**
+
+**[→ Open CSV Dataset](data-quality/data_quality.csv)**
 
 ---
 
@@ -123,10 +127,10 @@ The datasets contain no:
 
 ## Current Dataset Inventory
 
-| Dataset | Records | Primary Focus |
-|---|---:|---|
-| Response Evaluation | 10 | AI response evaluation |
-| Data Quality | 9 | Structured data quality evaluation |
+| Dataset | Records | Format | Primary Focus |
+|---|---:|---|---|
+| Response Evaluation | 10 | Markdown + CSV | AI response evaluation |
+| Data Quality | 10 | Markdown + CSV | Structured data quality evaluation |
 
 ---
 
