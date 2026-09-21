@@ -1,0 +1,11 @@
+﻿record_id,category,priority,language,issue_type,severity,decision,rationale,qa_status
+R001,Billing,High,English,None,N/A,Accept,All required fields contain valid values and follow the defined schema.,Passed
+R002,Technical Support,Medium,English,None,N/A,Accept,The record satisfies the defined data quality rules.,Passed
+R003,Billing,,English,Completeness,Major,Escalate,The required Priority field contains no value and the correct priority cannot be determined safely from the available information.,Requires Correction
+R004,Technical Support,Urgent,English,Validity,Major,Escalate,Urgent is outside the defined priority values and the intended replacement cannot be determined safely.,Requires Correction
+R005,Technical Support,Medium,English,Uniqueness,Major,Review for Removal or Merge,The same Record ID and field values appear in another record; the source should be checked before removal.,Requires Review
+R005,Technical Support,Medium,English,Uniqueness,Major,Review for Removal or Merge,The same Record ID and field values appear in another record; the source should be checked before removal.,Requires Review
+R006,billing,High,English,Consistency,Minor,Normalize,The category uses lowercase formatting while the defined category value uses title case; the intended normalization is unambiguous.,Correctable
+R007,Account,Low,,Completeness,Major,Escalate,The required Language field contains no value and there is insufficient evidence to determine the correct language.,Requires Correction
+R008,Account,Low,Vietnamese,None,N/A,Accept,All required fields contain valid values.,Passed
+R009,Technical Support,High,Vietnamese,None,N/A,Accept,The record conforms to the defined schema and allowed values.,Passed
