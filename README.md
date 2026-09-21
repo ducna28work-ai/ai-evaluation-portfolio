@@ -70,6 +70,24 @@ The goal is to make each evaluation decision traceable to observable evidence an
 
 ---
 
+### Inter-Annotator Agreement & Annotation QA
+
+A synthetic annotation QA project demonstrating how two annotators independently evaluate the same responses, identify disagreements, compare evidence, and resolve differences through adjudication.
+
+The project demonstrates:
+
+- Independent annotation
+- Agreement and disagreement analysis
+- Evidence comparison
+- Adjudication
+- Annotation consistency
+- Guideline improvement
+- Quality assurance
+
+**[→ View Project](evaluation-projects/inter-annotator-agreement/)**
+
+---
+
 ## Repository Structure
 
 ```text
