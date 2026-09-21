@@ -106,7 +106,8 @@ ai-evaluation-portfolio/
 ├── evaluation-projects/
 │   ├── response-evaluation/
 │   ├── pairwise-comparison/
-│   └── data-quality/
+│   ├── data-quality/
+│   └── inter-annotator-agreement/
 │
 ├── evaluation-examples/
 │   ├── instruction-following/
@@ -116,12 +117,22 @@ ai-evaluation-portfolio/
 │   ├── response-quality/
 │   └── data-quality/
 │
-└── rubrics/
-    ├── response-quality-rubric/
-    ├── instruction-following-rubric/
-    ├── factuality-rubric/
-    ├── relevance-rubric/
-    ├── completeness-rubric/
-    ├── data-quality-rubric/
-    └── safety-compliance-rubric/
+├── rubrics/
+│   ├── response-quality-rubric/
+│   ├── instruction-following-rubric/
+│   ├── factuality-rubric/
+│   ├── relevance-rubric/
+│   ├── completeness-rubric/
+│   ├── data-quality-rubric/
+│   └── safety-compliance-rubric/
+│
+└── datasets/
+    ├── README.md
+    ├── annotation-guidelines.md
+    ├── response-evaluation/
+    │   ├── README.md
+    │   └── response_evaluation.csv
+    └── data-quality/
+        ├── README.md
+        └── data_quality.csv
 ```
