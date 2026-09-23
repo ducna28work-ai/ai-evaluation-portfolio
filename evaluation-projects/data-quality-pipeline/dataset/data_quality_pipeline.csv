@@ -1,0 +1,13 @@
+record_id,customer_name,category,priority,language,status
+P001,Nguyen Minh Anh,Billing,High,Vietnamese,Open
+P002,Tran Quoc Bao,Technical,Medium,English,Pending
+P003,Le Thu Ha,Account,,Vietnamese,Open
+P004,Pham Duc Long,General,Urgent,Vietnamese,Open
+P005,Hoang Gia Han,Billing,High,English,Resolved
+P005,Hoang Gia Han,Billing,High,English,Resolved
+P006,Do Thanh Nam,billing,Low,Vietnamese,Pending
+P007,Vu Ngoc Linh,Technical,Medium,,Open
+P008,Bui Minh Quan,Account,High,Vietnamese,Resolved
+P009,Nguyen Ha My,General,Low,English,Pending
+P010,Pham Quang Huy,Technical,Medium,Vietnamese,Open
+P011,Le Minh Khang,Billing,Low,Vietnamese,Resolved
