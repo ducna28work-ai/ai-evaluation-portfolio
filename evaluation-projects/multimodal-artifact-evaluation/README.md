@@ -1,205 +1,307 @@
 # Multimodal Artifact Evaluation
 
-A practical project demonstrating structured evaluation of AI-generated multimodal artifacts, including websites, applications, games, visualizations, presentations, reports, and other interactive outputs.
+## Overview
 
-## Purpose
+This project demonstrates a structured approach to evaluating AI-generated multimodal artifacts, including interactive interfaces, games, documents, visual outputs, and other artifact-based responses.
 
-The project demonstrates how two AI-generated artifacts can be evaluated independently against the same task requirements and then compared at an overall level.
+The evaluation process focuses on:
 
-The evaluation process separates:
+- Prompt and input understanding
+- Artifact loading and usability
+- Broken or blank interface detection
+- Interactive behavior
+- Independent rubric evaluation
+- Rubric quality and modification
+- Evidence-based judgment
+- Rejection decisions
+- Evaluation quality assurance
 
-- Task understanding
-- Artifact availability
-- Loading and rendering behavior
-- Interactive functionality
-- Rubric-level evaluation
-- Overall comparison
-- Rejection handling
-- Evaluation QA
+The project is based on a synthetic evaluation dataset and does not contain proprietary production data.
 
-## Evaluation Model
+---
 
-Each task contains:
+## Evaluation Objective
 
-- A prompt
-- Input materials
-- Response A
-- Response B
-- Rubric criteria
-- Overall evaluation dimensions
+The goal is to evaluate whether an AI-generated artifact satisfies the task requirements and whether the evaluation itself is performed consistently and correctly.
 
-The two responses are evaluated independently before making an overall comparison.
+The evaluator should separate:
+
+1. Artifact functionality
+2. Artifact quality
+3. Rubric applicability
+4. Evaluation evidence
+5. Final QA
+
+A visually unattractive or incomplete artifact should not automatically be rejected.
+
+A sample should only be rejected when the artifact is genuinely broken or blank according to the defined loading and rejection rules.
+
+---
+
+## Evaluation Scope
+
+This project covers:
+
+- Text-based artifacts
+- Visual artifacts
+- Interactive interfaces
+- Forms
+- Navigation
+- Games
+- Multimodal outputs
+- Artifact-based agent responses
+
+The evaluation framework can be adapted to different artifact types while keeping the same core evaluation logic.
+
+---
 
 ## Evaluation Workflow
 
-**Read Prompt → Review Input Materials → Open Response A → Open Response B → Check Loading State → Test Artifact → Evaluate Rubric Criteria → Review Overall Dimensions → QA → Submit**
+### Step 1 — Read the Task
 
-## Artifact Types
+Review:
 
-The framework can be applied to different AI-generated outputs, including:
+- User prompt
+- Input materials
+- Task requirements
+- Expected output
+- Evaluation rubric
 
-- Websites
-- Applications
-- Games
-- Interactive visualizations
-- Presentations
-- Reports
-- Code-based interfaces
-- Other multimodal artifacts
+Do not evaluate the artifact before understanding what the task requires.
 
-## Loading vs Broken Interface
+---
 
-An evaluator should distinguish between an artifact that is still loading and one that is actually broken.
+### Step 2 — Open Both Outputs
 
-### Loading
+Open both Response A and Response B.
 
-Possible indicators include:
+Both outputs must be opened before completing the evaluation.
+
+The evaluator should not judge one response only because the other response has not yet been inspected.
+
+---
+
+### Step 3 — Check Loading State
+
+After opening an artifact, allow up to 30 seconds for loading.
+
+A loading artifact may contain:
 
 - Spinner
 - Progressive rendering
-- Partial content appearing
-- Interface continuing to load
+- Partial content
+- Delayed interface initialization
+- Temporary loading state
 
-The evaluator should allow sufficient time for the artifact to render before making a failure judgment.
+Slow loading alone is not a rejection reason.
 
-### Broken or Blank
+---
 
-Examples include:
+### Step 4 — Detect Broken or Blank Outputs
 
-- Persistent blank screen
-- Persistent black screen
-- Error message preventing use
-- Only a small unusable interface fragment
-- Indefinite loading with no usable output
+After the loading period, determine whether the artifact is actually usable.
 
-A broken or blank interface may qualify for rejection according to the evaluation rules.
+Examples of broken or blank states:
 
-## Interactive Testing
+- Completely blank page
+- Black or empty interface
+- Error screen
+- Unusable tiny fragment
+- Persistent loading after the allowed period
+- Interface that fails to render the artifact
 
-Artifacts should not be evaluated only from their initial screen.
+If one or both outputs are genuinely broken or blank, reject the sample.
 
-Depending on the artifact, testing may include:
+Recommended rejection reason:
+
+> One or both outputs have a broken/blank interface
+
+---
+
+## Loading vs Broken
+
+| Situation | Evaluation Action |
+|---|---|
+| Spinner appears temporarily | Continue waiting |
+| Content progressively appears | Continue evaluation |
+| Slow rendering but usable | Continue evaluation |
+| Poor visual design | Score normally |
+| Missing requirement | Score normally |
+| One button does not work | Score normally |
+| Partial interaction failure | Score normally |
+| Completely blank interface | Reject |
+| Error interface | Reject |
+| Infinite loading after 30 seconds | Reject |
+
+The key distinction is:
+
+**Poor quality is not the same as a broken artifact.**
+
+---
+
+## Step 5 — Test Interactions
+
+For interactive artifacts, test the available interaction paths.
+
+Examples:
 
 - Buttons
 - Menus
 - Forms
+- Links
 - Scrolling
-- Navigation
-- Mouse interaction
-- Keyboard controls
-- Arrow keys
+- Arrows
 - WASD
 - Space
 - Enter
-- Focus behavior
+- Mouse interaction
+- Cursor lock
+- Escape to exit cursor lock
 
-For interactive games, the evaluator should test the actual interaction rather than judging only the initial visual presentation.
+A failed interaction should normally be treated as a quality issue rather than an automatic rejection.
 
-## Rejection Logic
+---
 
-Rejection should be reserved for cases where the artifact is fundamentally unavailable for evaluation.
+## Game Evaluation
 
-Examples include:
+For games or game-like artifacts:
 
-- One or both outputs have a broken or blank interface
-- An output cannot become usable after the required loading period
+1. Click the artifact to establish focus.
+2. Test available controls.
+3. Test movement.
+4. Test buttons and menus.
+5. Test scrolling or navigation when applicable.
+6. Test Space or Enter when relevant.
+7. Test Escape to exit cursor lock when applicable.
+8. Determine whether the artifact remains usable.
 
-Poor quality should not automatically result in rejection.
+A game with poor controls should normally remain eligible for scoring.
 
-Examples that should normally remain available for scoring include:
+Only a genuinely broken or blank artifact should be rejected.
 
-- Incomplete output
-- Poor visual quality
-- Missing requirements
-- Broken individual interactions
-- Poor game mechanics
-- Low-quality content
+---
 
-These are quality issues and should be reflected in the rubric evaluation.
-
-## Independent Rubric Evaluation
+## Step 6 — Evaluate the Rubric Independently
 
 Each rubric criterion should be evaluated independently for Response A and Response B.
 
-Possible outcomes include:
+Possible results:
 
-- A: Good
-- A: Bad
-- B: Good
-- B: Bad
+- Good
+- Bad
+- Not Evaluated
 
-Both responses may receive Good.
+Both outputs can receive the same result.
 
-Both responses may receive Bad.
+For example:
 
-One response may receive Good while the other receives Bad.
+| Criterion | Response A | Response B |
+|---|---|---|
+| Visual consistency | Good | Good |
+| Requirement coverage | Bad | Good |
+| Interaction | Good | Bad |
 
-The rubric should not be treated as a winner-selection mechanism at the individual criterion level.
+The evaluator should not force a difference between the two outputs.
 
-## Rubric Editing
+---
 
-When rubric editing is available, changes should be made only when justified.
+## Step 7 — Review the Rubric
+
+The rubric itself may contain problems.
+
+Possible actions:
 
 ### Remove
 
-Remove a criterion when:
+Use when:
 
-- It cannot be evaluated from the available prompt or input materials.
-- It is clearly not applicable.
+- The criterion cannot be evaluated.
+- The criterion is clearly not applicable.
+- The artifact does not contain the required component.
 
 ### Clarify
 
-Clarify a criterion when a small wording change makes the requirement objectively evaluable without changing its original intent.
+Use when:
+
+- The criterion is relevant.
+- The wording is ambiguous.
+- A small wording change makes it objectively evaluable.
 
 ### Correct
 
-Correct a criterion when it directly conflicts with the prompt or references material that does not exist.
+Use when:
 
-Rubric changes should:
+- The criterion conflicts with the prompt.
+- The criterion references a nonexistent document.
+- The criterion contains an incorrect requirement.
 
-- Preserve the original intent.
-- Apply equally to Response A and Response B.
-- Be supported by the available task information.
-- Never be changed to favor one response.
+Rubric modifications must be applied neutrally.
 
-## Overall Evaluation
+Do not modify a rubric to make one response look better.
 
-After independent rubric evaluation, the evaluator compares the overall quality of the two artifacts.
+---
 
-The overall decision should consider:
+## Step 8 — Record Evidence
 
-- Rubric performance
-- Task fulfillment
-- Artifact usability
-- Interactive behavior
-- Overall quality
+Every important judgment should be supported by observable evidence.
 
-The overall comparison should be based on the evidence collected during evaluation.
+Good evidence describes:
 
-## QA Principles
+- What was observed
+- Where it occurred
+- What requirement it affects
+- Why the observation supports the judgment
 
-A high-quality evaluation should:
+Avoid vague statements such as:
 
-- Inspect both responses.
-- Allow sufficient loading time.
-- Distinguish loading from broken interfaces.
-- Test interactive functionality.
-- Evaluate rubric criteria independently.
-- Avoid rejecting outputs solely because they are poor quality.
-- Modify rubrics only when justified.
-- Apply rubric changes equally.
-- Base overall comparisons on observed evidence.
+> Response A is better.
 
-## Dataset
+Prefer:
 
-The included dataset is synthetic and demonstrates evaluation records without exposing production task data, real artifacts, customer information, or confidential project details.
+> Response A loads successfully and exposes all required navigation controls, while Response B leaves the primary navigation menu non-functional.
 
-## Limitations
+---
 
-The repository does not contain the original production artifacts or internal evaluation platform.
+## Step 9 — Complete Overall Evaluation
 
-The project demonstrates the evaluation methodology and QA framework using synthetic records.
+After individual criteria are evaluated, complete the overall evaluation.
 
-## Status
+The overall assessment should reflect the evidence gathered from:
 
-The multimodal artifact evaluation framework, synthetic dataset, rubric, and QA analysis are complete.
+- Requirement coverage
+- Artifact quality
+- Functionality
+- Interaction
+- Usability
+- Rubric results
+
+Do not allow a single minor issue to dominate the entire evaluation unless the rubric explicitly makes that issue critical.
+
+---
+
+## Rejection Decision Tree
+
+```text
+Open artifact
+      |
+      v
+Does it load?
+      |
+   +--+--+
+   |     |
+  No    Yes
+   |     |
+Wait     v
+up to   Test
+30 sec  artifact
+   |     |
+   v     v
+Still   Usable?
+broken?   |
+   |     |
+  Yes   +--+--+
+   |    |     |
+Reject Yes    No
+        |      |
+      Score   Score
+      normally normally
