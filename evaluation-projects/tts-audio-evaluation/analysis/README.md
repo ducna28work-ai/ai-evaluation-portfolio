@@ -1,46 +1,32 @@
-# TTS Audio Evaluation — Analysis
+# TTS Audio Evaluation Analysis
 
-## Analysis Objective
+## Objective
 
-The analysis demonstrates how pairwise TTS evaluations can be reviewed for consistency, evidence quality, scope adherence, and QA compliance.
+This analysis documents the evaluation logic represented by the synthetic TTS dataset.
 
-## Analysis Workflow
+The goal is to demonstrate how audio evaluations can separate different sources of quality differences.
 
-**Evaluation Records → Dimension Review → Evidence Review → Overall Consistency → Dominant Factor Check → Edge Case Review → QA**
+---
 
-## Dimension Separation
-
-A key quality principle is keeping the four dimensions separate.
-
-### Audio and Recording Quality
-
-Focuses on technical audio quality.
-
-### Pronunciation Faithfulness
-
-Focuses on transcript accuracy.
-
-### Naturalness
-
-Focuses on human-like speech characteristics.
-
-### Overall Preference
-
-Combines relevant evidence from the evaluation.
-
-A strong evaluation should not use naturalness as evidence for technical recording quality or use speaker preference as evidence for pronunciation accuracy.
-
-## Dominant Factor Consistency
-
-For Overall Preference records, the dominant factor should correspond to the strongest reason influencing the final choice.
-
-Example:
+# Evaluation Pipeline
 
 ```text
-Overall Preference: B
-
-Reason:
-B has substantially more natural pacing.
-
-Dominant Factor:
+Transcript
+    ↓
+Listen to A
+    ↓
+Listen to B
+    ↓
+Audio & Recording Quality
+    ↓
+Pronunciation Faithfulness
+    ↓
 Naturalness
+    ↓
+Overall Preference
+    ↓
+Dominant Factor
+    ↓
+Evidence Check
+    ↓
+Final QA
