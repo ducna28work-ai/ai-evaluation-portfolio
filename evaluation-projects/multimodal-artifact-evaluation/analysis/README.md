@@ -1,24 +1,34 @@
-# Multimodal Artifact Evaluation — Analysis
+# Multimodal Artifact Evaluation Analysis
 
-## Analysis Objective
+## Objective
 
-The analysis demonstrates how multimodal AI artifacts can be evaluated consistently across loading behavior, interaction, rubric compliance, rejection handling, and overall quality.
+This analysis documents the evaluation patterns represented in the synthetic multimodal artifact dataset.
 
-## Evaluation Sequence
+The analysis focuses on the quality of the evaluation process rather than ranking specific AI systems.
+
+---
+
+## Evaluation Pipeline
 
 ```text
-Prompt & Inputs
+Prompt + Input
       ↓
 Open Response A
       ↓
 Open Response B
       ↓
-Check Loading State
+Loading Check
       ↓
-Test Artifact
+Broken / Blank Check
       ↓
-Evaluate Rubric Independently
+Interaction Testing
       ↓
-Review Overall Dimensions
+Independent Rubric Evaluation
       ↓
-QA
+Rubric Review
+      ↓
+Evidence Recording
+      ↓
+Overall Evaluation
+      ↓
+Final QA
