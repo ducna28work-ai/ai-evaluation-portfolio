@@ -1,6 +1,8 @@
-# Vietnamese Speech Annotation & QA
+# Vietnamese Speech Annotation & Quality Assurance
 
-A practical portfolio project demonstrating structured annotation of spontaneous Vietnamese speech, including spoken words, fillers, false starts, pauses, non-verbal sounds, uncertainty, multiple speakers, dialectal speech, punctuation, and audio rejection decisions.
+A practical portfolio project demonstrating structured annotation and quality assurance for spontaneous Vietnamese speech.
+
+The project focuses on faithful transcription of spoken audio, including disfluencies, filler words, non-verbal events, pauses, false starts, uncertainty, multiple speakers, dialectal speech, punctuation, written normalization, and audio rejection decisions.
 
 ## Purpose
 
@@ -8,66 +10,70 @@ Spontaneous speech is different from polished written language.
 
 Natural speech may contain:
 
-- Fillers
+- Filler words
 - Hesitations
 - False starts
 - Repeated words
 - Pauses
 - Laughter
 - Coughing
-- Breathing sounds
+- Gasping
+- Throat clearing
 - Background noise
 - Unclear speech
 - Multiple speakers
-- Dialectal pronunciation
+- Dialectal expressions
+- Informal or colloquial grammar
 - Incomplete sentences
 
-A high-quality annotation process should preserve meaningful audio events instead of rewriting spontaneous speech into polished written language.
+The purpose of annotation is not to rewrite this speech into polished Vietnamese.
 
-The core principle of this project is:
+The objective is to represent what can be heard while applying a consistent annotation convention.
 
-> Transcribe the speech as it is heard while applying consistent annotation rules.
+## Golden Rule
 
-## What This Project Demonstrates
+> Every audio event should have a corresponding textual event.
 
-This project demonstrates the ability to:
+If an event can be clearly heard and belongs to the annotation scope, it should be represented in the transcript.
 
-- Transcribe spoken Vietnamese accurately.
-- Preserve spontaneous speech characteristics.
-- Apply controlled annotation tags.
-- Distinguish speech from non-speech events.
-- Handle uncertain or inaudible words.
-- Normalize numerical and written expressions.
-- Identify multiple speakers.
-- Handle dialectal pronunciation.
-- Apply punctuation based on spoken intonation.
-- Detect false starts and word fragments.
-- Identify valid audio rejection cases.
-- Perform annotation quality assurance.
+The transcript should therefore preserve:
+
+1. Complete spoken words
+2. Supported filler words
+3. Word fragments and false starts
+4. Supported non-verbal events
+5. Meaningful pauses
+6. Punctuation reflecting spoken intonation
 
 ## Annotation Workflow
 
 ```text
 Listen to Audio
       ↓
-Understand the Spoken Content
+Review Existing Transcript
       ↓
-Identify Speakers
+Identify Spoken Words
       ↓
-Transcribe Spoken Words
+Apply Written Normalization
       ↓
-Identify Fillers & False Starts
+Identify Fillers
       ↓
 Identify Non-Verbal Events
       ↓
-Handle Unclear / Inaudible Content
+Handle Unclear / Inaudible Speech
       ↓
-Normalize Written Expressions
+Check Foreign-Language Content
       ↓
-Apply Supported Punctuation
+Identify Speakers
       ↓
-Review Transcript
+Handle Overlap
       ↓
-QA Check
+Apply Punctuation
       ↓
-Accept or Reject
+Review False Starts
+      ↓
+Check Dialect and Informal Speech
+      ↓
+Apply Rejection Rules
+      ↓
+Final QA
