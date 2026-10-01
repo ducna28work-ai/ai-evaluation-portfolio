@@ -1,77 +1,101 @@
-# Vietnamese Speech Annotation — Dataset
+# Vietnamese Speech Annotation Dataset
 
-Synthetic dataset demonstrating annotation decisions for spontaneous Vietnamese speech.
+A synthetic dataset designed to demonstrate annotation decisions for spontaneous Vietnamese speech.
 
-## Purpose
+## Dataset Objective
 
-The dataset is designed to represent common annotation scenarios rather than production audio.
+The dataset represents the major annotation scenarios defined by the project guideline.
 
-Each record describes an observed synthetic speech event and the expected annotation outcome.
+It is intentionally synthetic and does not contain production recordings or confidential project data.
 
-## Dataset Structure
+## Coverage
+
+The dataset covers:
+
+1. Basic transcription
+2. Written normalization
+3. Elongated words
+4. Unclear words
+5. Inaudible words
+6. Foreign-language words
+7. Spoken spelling
+8. Multiple speakers
+9. Speaker overlap
+10. Punctuation
+11. Pauses
+12. Filler words
+13. Commonly used words
+14. Non-verbal events
+15. False starts
+16. Repeated complete words
+17. Cut-off speech
+18. Profanity
+19. Dialects
+20. Background noise
+21. Valid rejection cases
+22. Invalid rejection cases
+23. QA error cases
+
+## Schema
 
 | Field | Description |
 |---|---|
-| `annotation_id` | Unique annotation identifier |
-| `scenario` | Type of speech annotation scenario |
-| `audio_observation` | Synthetic description of what can be heard |
-| `raw_spoken_form` | Approximate spoken content |
+| `annotation_id` | Unique synthetic case ID |
+| `scenario` | Annotation scenario |
+| `audio_observation` | Description of the synthetic audio |
+| `spoken_content` | Spoken content represented by the scenario |
 | `expected_transcription` | Expected annotated transcript |
-| `annotation_rule` | Rule demonstrated by the example |
-| `error_category` | Potential annotation error being tested |
-| `rejection_decision` | Accept or Reject |
-| `qa_status` | QA review status |
+| `rule_applied` | Main guideline rule demonstrated |
+| `common_error` | Typical annotation mistake |
+| `decision` | Accept or Reject |
+| `qa_status` | QA state |
 
-## Scenario Categories
+## Decision Values
 
-The dataset includes examples covering:
+### Accept
 
-- Standard speech
-- Filler words
-- Pauses
-- Non-verbal sounds
-- Unclear words
-- Inaudible words
-- Foreign-language words
-- Spoken spelling
-- Multiple speakers
-- Speaker overlap
-- Numerical normalization
-- Dates and times
-- Monetary amounts
-- Percentages
-- Measurements
-- False starts
-- Cut-off speech
-- Dialectal speech
-- Profanity
-- Background noise
-- Rejection cases
+The audio can be annotated using the defined conventions.
 
-## Annotation Principles
+### Reject
 
-### Preserve Speech
+The primary speaker cannot be understood because of a qualifying audio problem.
 
-Do not rewrite spontaneous speech into polished prose.
+## Synthetic Data Principles
 
-### Preserve Meaning
+The dataset is designed to demonstrate reasoning rather than simulate actual production audio.
 
-Normalize appropriate written expressions while retaining the meaning of the spoken content.
+Each example should allow a reviewer to answer:
 
-### Preserve Events
+1. What happened in the audio?
+2. Which annotation rule applies?
+3. What should the transcript contain?
+4. What common error should be avoided?
+5. Should the audio be accepted or rejected?
 
-Important non-verbal and disfluency events should be represented using controlled tags.
+## QA Use
 
-### Do Not Guess Excessively
+The dataset can be used to test:
 
-Use uncertainty or inaudible tags when the audio does not support a confident transcription.
+- Annotation accuracy
+- Rule application
+- Tag consistency
+- Normalization consistency
+- Speaker labeling
+- Rejection decisions
+- Error classification
 
-### Reject Only When Necessary
+## Data Quality Principles
 
-An understandable audio file should remain annotatable even when it contains noise or other imperfections.
+A valid annotation should be:
 
-## Synthetic Data Notice
+- Faithful to the audio observation.
+- Consistent with the defined notation.
+- Conservative when speech is uncertain.
+- Free from unsupported additions.
+- Consistent with rejection rules.
 
-The audio observations and transcripts are fictional examples created for portfolio demonstration.
+## Limitations
 
-They are not recordings from real speakers and do not represent production annotation records.
+The dataset does not replace real audio review.
+
+Actual speech annotation requires listening to the original recording under the defined listening conditions.
