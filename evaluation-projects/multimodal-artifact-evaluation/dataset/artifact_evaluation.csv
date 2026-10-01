@@ -1,16 +1,33 @@
-evaluation_id,artifact_type,loading_state_a,loading_state_b,rubric_result_a,rubric_result_b,interaction_test,rejection,overall_preference,evidence,qa_status
-MAE-001,Website,Loaded,Loaded,Good,Good,Yes,No,B,"Both artifacts satisfy the main requirements; B provides clearer navigation and stronger interaction flow.",Reviewed
-MAE-002,Application,Loaded,Loaded,Good,Bad,Yes,No,A,"A completes the required workflow while B contains a broken form interaction.",Reviewed
-MAE-003,Game,Loaded,Loaded,Bad,Good,Yes,No,B,"A renders visually but the main game control does not respond; B supports the required interaction.",Reviewed
-MAE-004,Visualization,Loaded,Loaded,Good,Good,Yes,No,B,"Both provide the required visualization, but B offers clearer controls and easier exploration.",Reviewed
-MAE-005,Presentation,Loaded,Loaded,Good,Bad,No,No,A,"A satisfies the required presentation structure while B is missing several required sections.",Reviewed
-MAE-006,Report,Loaded,Loaded,Bad,Good,No,No,B,"B provides the required sections and supporting information more completely.",Reviewed
-MAE-007,Website,Loaded,Broken,Good,,Yes,Yes,Reject,"Response B remains on a broken interface after the required loading period.",Reviewed
-MAE-008,Game,Loaded,Loaded,Bad,Bad,Yes,No,B,"Both artifacts have gameplay issues, but B remains usable and completes more of the requested interaction.",Reviewed
-MAE-009,Application,Loaded,Loaded,Good,Good,Yes,No,A,"Both applications satisfy the rubric; A has a more reliable workflow during interaction testing.",Reviewed
-MAE-010,Visualization,Loaded,Loaded,Bad,Bad,Yes,No,B,"Both fail one rubric requirement, but B provides a more usable interactive visualization.",Reviewed
-MAE-011,Website,Loading,Loaded,Good,Good,Yes,No,B,"Response A required additional loading time before becoming usable; after evaluation B provides clearer task completion.",Reviewed
-MAE-012,Presentation,Loaded,Loaded,Bad,Good,No,No,B,"B follows the required structure and includes the requested supporting elements.",Reviewed
-MAE-013,Game,Loaded,Loaded,Good,Good,Yes,No,B,"Both games are usable, but B responds more reliably to keyboard controls during testing.",Reviewed
-MAE-014,Application,Loaded,Loaded,Bad,Bad,Yes,No,A,"Both applications contain interaction problems, but A preserves more of the required workflow.",Reviewed
-MAE-015,Website,Blank,Loaded,,Good,Yes,Yes,Reject,"Response A remains blank and unusable after the required loading period.",Reviewed
+case_id,scenario,task_type,response_a_observation,response_b_observation,rubric_result_a,rubric_result_b,overall_result,special_action,evidence,qa_status
+MM-001,Normal loading,Interactive UI,"Loads successfully with complete interface.","Loads successfully with complete interface.",Good,Good,Pass,None,"Both outputs render normally and remain usable.",Reviewed
+MM-002,Slow loading,Interactive UI,"Loads after approximately 20 seconds.","Loads quickly.",Good,Good,Pass,None,"Response A is slow but becomes fully usable within the allowed loading period.",Reviewed
+MM-003,Broken interface,Interactive UI,"Blank interface remains after the loading period.","Loads successfully.",Not Evaluated,Good,Reject,Reject,"Response A remains blank after the allowed loading period.",Reviewed
+MM-004,Error interface,Document artifact,"Displays a persistent rendering error.","Loads the requested document.",Not Evaluated,Good,Reject,Reject,"Response A shows an error interface instead of the requested artifact.",Reviewed
+MM-005,Poor visual quality,Visual artifact,"Artifact is visually cluttered but fully visible.","Artifact is visually polished.",Bad,Good,Pass,None,"Response A is usable despite poor visual organization.",Reviewed
+MM-006,Missing requirement,Interactive UI,"Loads successfully but omits the required navigation menu.","Contains the required navigation menu.",Bad,Good,Pass,None,"Response A is usable but fails an explicit task requirement.",Reviewed
+MM-007,Button interaction,Interactive UI,"Primary button opens the expected panel.","Primary button does not respond.",Good,Bad,Pass,None,"Response B has a specific interaction failure but the artifact remains usable.",Reviewed
+MM-008,Form interaction,Form,"Form accepts text and submits successfully.","Form renders but submission does not work.",Good,Bad,Pass,None,"The submission failure affects quality but does not make the artifact blank or broken overall.",Reviewed
+MM-009,Navigation,Interactive UI,"All navigation links work.","One navigation link leads to the wrong section.",Good,Bad,Pass,None,"Response B has a navigation defect that can be evaluated normally.",Reviewed
+MM-010,Scrolling,Interactive UI,"Page scrolls normally.","Page cannot scroll beyond the initial section.",Good,Bad,Pass,None,"Scrolling behavior is observable in both outputs.",Reviewed
+MM-011,Arrow controls,Game,"Arrow keys move the player correctly.","Arrow keys produce no movement.",Good,Bad,Pass,None,"The interaction difference is directly observable during testing.",Reviewed
+MM-012,WASD controls,Game,"WASD controls work as expected.","Only W and S work.",Good,Bad,Pass,None,"Response B has partial control failure.",Reviewed
+MM-013,Space control,Game,"Space activates the expected action.","Space has no visible effect.",Good,Bad,Pass,None,"Space interaction was tested directly.",Reviewed
+MM-014,Enter control,Game,"Enter confirms the selected option.","Enter does not confirm the option.",Good,Bad,Pass,None,"The confirmation behavior is testable and differs between outputs.",Reviewed
+MM-015,Cursor lock,Game,"Mouse interaction enters cursor lock normally.","Cursor lock activates but Escape successfully exits it.",Good,Good,Pass,None,"Both outputs provide usable cursor-lock behavior.",Reviewed
+MM-016,Both outputs good,Interactive UI,"All required functions work.","All required functions work.",Good,Good,Pass,None,"Both outputs satisfy the tested requirements.",Reviewed
+MM-017,Both outputs poor,Interactive UI,"Interface is usable but several visual requirements are missing.","Interface is usable but several visual requirements are missing.",Bad,Bad,Pass,None,"Both outputs have observable quality issues but neither is broken or blank.",Reviewed
+MM-018,Independent rubric,Visual artifact,"Satisfies the first criterion but fails the second.","Satisfies the first criterion and the second.",Good,Bad,Pass,None,"Each response is evaluated against the criterion independently.",Reviewed
+MM-019,Rubric removal,Visual artifact,"Artifact does not contain the component described by the criterion.","Artifact does not contain the component described by the criterion.",Not Evaluated,Not Evaluated,Pass,Remove,"The criterion is not applicable to the artifact type.",Reviewed
+MM-020,Rubric clarification,Interactive UI,"Criterion is relevant but wording is ambiguous.","Criterion is relevant but wording is ambiguous.",Good,Good,Pass,Clarify,"A small wording clarification makes the criterion objectively evaluable.",Reviewed
+MM-021,Rubric correction,Document artifact,"Rubric references a document that is not part of the task.","Rubric references a document that is not part of the task.",Not Evaluated,Not Evaluated,Pass,Correct,"The rubric contains a requirement that conflicts with the supplied task.",Reviewed
+MM-022,Biased rubric modification,Interactive UI,"Rubric wording is changed to favor Response A.","Rubric wording is changed to favor Response A.",Bad,Bad,Pass,None,"The proposed modification introduces evaluation bias and should not be accepted.",Reviewed
+MM-023,Neutral rubric modification,Interactive UI,"Rubric is clarified without changing the intended requirement.","Rubric is evaluated using the same clarified wording.",Good,Good,Pass,Clarify,"The wording becomes clearer while remaining neutral to both responses.",Reviewed
+MM-024,Partial interaction failure,Interactive UI,"One secondary button does not work.","All tested controls work.",Bad,Good,Pass,None,"A limited interaction failure should affect scoring rather than trigger rejection.",Reviewed
+MM-025,Initial blank state,Interactive UI,"Initial screen is blank for a short period and then renders.","Loads immediately.",Good,Good,Pass,None,"The temporary blank state resolves within the allowed loading period.",Reviewed
+MM-026,Loading misconception,Interactive UI,"Spinner remains visible for 10 seconds before rendering.","Loads immediately.",Good,Good,Pass,None,"Ten seconds of loading does not meet the broken-interface threshold.",Reviewed
+MM-027,Game quality,Game,"Game loads and is playable but movement is awkward.","Game loads and controls are responsive.",Bad,Good,Pass,None,"Poor playability affects quality but does not justify rejection.",Reviewed
+MM-028,Evidence quality,Interactive UI,"Evaluator records specific observable evidence.","Evaluator records only a general preference statement.",Good,Bad,Pass,None,"Specific evidence provides stronger support for the evaluation.",Reviewed
+MM-029,Unnecessary rejection,Visual artifact,"Artifact loads successfully but is visually incomplete.","Artifact loads successfully and is complete.",Bad,Good,Pass,None,"Missing requirements should be scored rather than rejected when the artifact remains usable.",Reviewed
+MM-030,Broken after waiting,Interactive UI,"Persistent black screen remains after 30 seconds.","Fully usable interface appears.",Not Evaluated,Good,Reject,Reject,"Response A remains unusable after the maximum loading period.",Reviewed
+MM-031,Final QA,Interactive UI,"Evaluator opened both outputs and tested all relevant controls.","Evaluator opened both outputs and tested all relevant controls.",Good,Good,Pass,None,"Evaluation steps and evidence are complete and consistent.",Reviewed
+MM-032,Evaluation error,Interactive UI,"Evaluator rejects the output only because one animation is unattractive.","Evaluator scores the artifact normally.",Bad,Good,Pass,None,"Visual unattractiveness alone is not a valid rejection reason.",Reviewed
