@@ -1,16 +1,11 @@
 # Vietnamese Speech Annotation Examples
 
-This document demonstrates how the annotation framework can be applied to common spontaneous-speech situations.
+This document provides practical examples for applying the annotation rules.
 
-## Example 1 — Filler Word
-
-### Audio Observation
-
-The speaker says:
-
-> "Ừm, tôi nghĩ chúng ta nên đi."
-
-### Correct Annotation
+Each example follows:
 
 ```text
-[ừm] tôi nghĩ chúng ta nên đi.
+Audio Observation
+→ Correct Annotation
+→ Incorrect Annotation
+→ QA Reason
