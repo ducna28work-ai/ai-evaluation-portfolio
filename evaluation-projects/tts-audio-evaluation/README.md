@@ -1,78 +1,120 @@
-# TTS Audio Evaluation
+# TTS Audio Evaluation — Fixed-Voice ELO
 
-A practical project demonstrating pairwise evaluation of text-to-speech outputs using structured quality dimensions, evidence-based judgments, edge-case handling, and annotation QA.
+## Overview
 
-## Purpose
+This project demonstrates a structured approach to evaluating two anonymous text-to-speech audio outputs generated from the same transcript.
 
-The project demonstrates how two TTS responses generated from the same transcript can be evaluated consistently using predefined quality dimensions.
+The evaluation focuses only on audible qualities that can be directly assessed from the audio.
 
-The evaluation focuses on observable audio characteristics rather than speaker identity, voice similarity, or persona likeness.
+The project does not evaluate:
 
-## Evaluation Dimensions
+- Speaker identity
+- Target-speaker similarity
+- Voice clone realism
+- Persona likeness
+- Regional voice matching
 
-### 1. Audio and Recording Quality
+The evaluation is based on the provided transcript and the audible characteristics of Response A and Response B.
 
-Evaluate whether the audio contains fewer audible technical problems.
+---
 
-Relevant signals include:
+## Evaluation Objective
 
-- Background noise
+The evaluator compares two anonymous audio clips generated from the same transcript.
+
+The evaluation focuses on four dimensions:
+
+1. Audio and Recording Quality
+2. Pronunciation Faithfulness
+3. Naturalness
+4. Overall Preference
+
+The evaluator must also identify the **Dominant Factor** that explains the overall preference.
+
+The Dominant Factor must correspond to one of the first three evaluation dimensions.
+
+---
+
+## Evaluation Environment
+
+Before evaluation:
+
+- Use headphones when possible.
+- Work in a quiet environment.
+- Read the provided transcript first.
+- Listen to the complete audio for both A and B.
+- Replay sections when necessary.
+- Judge only what is audibly observable.
+
+Avoid making judgments based on assumptions about the hidden voice prompt or target speaker.
+
+---
+
+# Evaluation Dimensions
+
+## 1. Audio and Recording Quality
+
+Evaluate technical audio quality.
+
+Look for:
+
 - Audible artifacts
 - Clipping
+- Noise
 - Crackling
 - Distortion
 - Recording problems
 
-Delivery style and expressiveness should not influence this dimension.
+Do not use this dimension to evaluate:
 
-### 2. Pronunciation Faithfulness
+- Delivery style
+- Pronunciation
+- Persona
+- Speaker identity
 
-Evaluate whether the spoken output accurately follows the transcript.
+The focus is the technical quality of the recording.
 
-Relevant signals include:
+---
+
+## 2. Pronunciation Faithfulness
+
+Evaluate how faithfully the spoken audio represents the provided transcript.
+
+Look for:
 
 - Dropped words
-- Dropped syllables
 - Added words
-- Added syllables
-- Mispronunciation
+- Missing syllables
+- Mispronunciations
 - Unclear pronunciation
+- Incorrect spoken content
 
-### 3. Naturalness
+The evaluator should compare the audio directly with the transcript.
 
-Evaluate whether the speech sounds naturally spoken.
+---
 
-Relevant signals include:
+## 3. Naturalness
+
+Evaluate how natural the speech sounds.
+
+Consider:
 
 - Rhythm
 - Pacing
 - Pauses
 - Emphasis
 - Intonation
+- Overall flow
 
-### 4. Overall Preference
+Naturalness should be judged from the audible speech itself.
 
-Evaluate which response is better when the relevant dimensions are considered together.
+---
 
-The overall decision should also identify one dominant factor that had the greatest influence on the final preference.
+# 4. Overall Preference
 
-## Evaluation Workflow
-
-**Read Transcript → Listen to A → Listen to B → Evaluate Each Dimension → Compare Evidence → Select Preference → Identify Dominant Factor → QA**
-
-## Pairwise Evaluation
-
-Each evaluation compares two anonymized responses:
+The evaluator must select exactly one preferred response:
 
 ```text
-Transcript
-    │
-    ├── Response A
-    │
-    └── Response B
-          ↓
-    Dimension-by-Dimension Evaluation
-          ↓
-    Overall Preference
-          ↓
-    Dominant Factor
+Response A
+or
+Response B
