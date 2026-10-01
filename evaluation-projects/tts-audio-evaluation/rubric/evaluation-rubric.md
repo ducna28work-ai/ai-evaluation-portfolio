@@ -1,163 +1,148 @@
-# TTS Audio Evaluation Rubric
+# TTS Audio Evaluation — QA Rubric
 
-## 1. Audio and Recording Quality
+## Purpose
 
-### Question
+This rubric evaluates the quality of the evaluator's work.
 
-Which response has fewer audible artifacts, clipping, noise, or recording problems?
-
-### Evaluate
-
-- Background noise
-- Audible artifacts
-- Clipping
-- Crackling
-- Distortion
-- Recording problems
-
-### Do Not Evaluate
-
-- Expressiveness
-- Speaking style
-- Naturalness
-- Speaker identity
-- Voice similarity
+It does not evaluate the TTS system itself.
 
 ---
 
-## 2. Pronunciation Faithfulness
+## 5 — Exceptional
 
-### Question
+The evaluator:
 
-Which response says the transcript more accurately and clearly?
-
-### Evaluate
-
-- Dropped words
-- Dropped syllables
-- Added words
-- Added syllables
-- Mispronunciation
-- Unclear pronunciation
-
-The transcript is the reference for this dimension.
-
----
-
-## 3. Naturalness
-
-### Question
-
-Which response sounds more naturally spoken by a person?
-
-### Evaluate
-
-- Rhythm
-- Pacing
-- Pauses
-- Emphasis
-- Intonation
-
-Naturalness should be evaluated separately from technical recording quality.
+- Reads the transcript before listening.
+- Listens to both complete clips.
+- Uses appropriate listening conditions.
+- Separates the three primary evaluation dimensions correctly.
+- Uses audible evidence.
+- Avoids speaker identity judgments.
+- Avoids target-speaker similarity judgments.
+- Handles close calls appropriately.
+- Applies rejection rules correctly.
+- Selects exactly one Overall Preference.
+- Selects exactly one Dominant Factor.
+- Ensures the Dominant Factor matches one of the primary dimensions.
+- Maintains consistent reasoning.
 
 ---
 
-## 4. Overall Preference
+## 4 — Strong
 
-### Question
+The evaluator completes the major evaluation steps correctly.
 
-Which response is better when all relevant qualities are considered together?
-
-The evaluator should:
-
-1. Consider the relevant evaluation dimensions.
-2. Select A or B.
-3. Identify one dominant factor.
-4. Ensure the dominant factor is consistent with the overall decision.
+Minor omissions may exist but do not materially affect the final result.
 
 ---
 
-## 5. Dominant Factor
+## 3 — Acceptable
 
-The dominant factor is the single quality dimension that had the greatest influence on the overall preference.
+The evaluator completes the core process but has noticeable weaknesses.
 
-Valid dimensions:
+Examples:
 
-- Audio and Recording Quality
-- Pronunciation Faithfulness
-- Naturalness
+- Limited evidence
+- Incomplete explanation
+- Minor dimension confusion
+- Limited replay for a close call
 
-The dominant factor should explain the overall preference rather than introduce an unrelated criterion.
-
----
-
-## 6. Both Bad
-
-Use `Both Bad` for Audio and Recording Quality when both responses contain obvious and substantial technical audio problems.
-
-Do not force an A/B preference when the rubric provides an appropriate `Both Bad` option.
+The evaluation remains generally usable.
 
 ---
 
-## 7. Close Calls
+## 2 — Weak
 
-For close comparisons:
+The evaluator makes important process mistakes.
 
-- Replay both responses.
-- Evaluate one dimension at a time.
-- Avoid relying on memory.
-- Reduce ordering bias.
-- Reduce recency bias.
+Examples:
 
----
+- Does not fully listen to both clips
+- Confuses Naturalness with Audio Quality
+- Provides weak evidence
+- Applies rejection inconsistently
+- Does not properly check the Dominant Factor
 
-## 8. Rejection
-
-A task may require rejection when:
-
-### Unable to Play
-
-The audio cannot be played after reasonable retry attempts.
-
-### Wrong Language
-
-The spoken language does not match the transcript.
-
-### Rater Language Mismatch
-
-The evaluator cannot understand the language sufficiently to perform the evaluation reliably.
+The evaluation requires substantial QA review.
 
 ---
 
-## 9. QA Rubric
+## 1 — Unacceptable
 
-### 5 — Exceptional
+The evaluator:
 
-- Judgments are supported by clear evidence.
-- Dimensions are consistently separated.
-- Overall preference is consistent with the dominant factor.
-- No out-of-scope speaker identity or voice-similarity judgment is used.
+- Does not listen to both outputs.
+- Judges from the transcript alone.
+- Evaluates speaker identity.
+- Evaluates target-speaker similarity.
+- Confuses technical quality with pronunciation.
+- Confuses pronunciation with naturalness.
+- Fails to provide evidence.
+- Uses invalid rejection reasoning.
+- Does not select a valid Dominant Factor.
+- Selects multiple overall preferences.
 
-### 4 — Strong
+---
 
-- Evaluation is well supported.
-- Dimension boundaries are generally maintained.
-- Only minor inconsistency may appear in a close-call situation.
+# Error Taxonomy
 
-### 3 — Acceptable
+## E1 — Incomplete Listening
 
-- Overall judgment is usable.
-- One dimension may contain weak or incomplete reasoning.
-- Some distinction between dimensions may be missing.
+One or both audio clips were not fully evaluated.
 
-### 2 — Weak
+## E2 — Audio Quality Confusion
 
-- Judgment conflicts with observable evidence.
-- Dominant factor does not support the overall preference.
-- Important audio problems may be ignored.
+Technical artifacts are incorrectly evaluated as pronunciation or naturalness.
 
-### 1 — Unacceptable
+## E3 — Pronunciation Confusion
 
-- Judgment appears arbitrary.
-- Transcript is not properly considered.
-- Evaluation relies on out-of-scope speaker identity or similarity.
+Transcript accuracy problems are incorrectly evaluated as naturalness.
+
+## E4 — Naturalness Confusion
+
+Pacing, pauses, emphasis, or intonation are incorrectly evaluated as technical audio problems.
+
+## E5 — Speaker Identity Bias
+
+The evaluator judges whether the speaker resembles a specific person.
+
+## E6 — Target Voice Bias
+
+The evaluator judges similarity to a hidden or imagined target speaker.
+
+## E7 — Rejection Error
+
+The evaluator rejects a sample without meeting the rejection conditions.
+
+## E8 — Evidence Failure
+
+The judgment is not supported by an observable audio-based reason.
+
+## E9 — Dominant Factor Error
+
+The selected Dominant Factor does not explain the Overall Preference.
+
+## E10 — Multiple Preference Error
+
+The evaluator fails to select exactly one overall preferred response.
+
+---
+
+# Final QA Gate
+
+```text
+[ ] Transcript reviewed
+[ ] A fully listened to
+[ ] B fully listened to
+[ ] Audio quality evaluated
+[ ] Pronunciation evaluated
+[ ] Naturalness evaluated
+[ ] Overall Preference selected
+[ ] Exactly one Dominant Factor selected
+[ ] Dominant Factor is valid
+[ ] Speaker identity excluded
+[ ] Target-speaker similarity excluded
+[ ] Close call replay performed when necessary
+[ ] Evidence supports the judgment
+[ ] Rejection decision is valid
+[ ] Final evaluation is internally consistent
