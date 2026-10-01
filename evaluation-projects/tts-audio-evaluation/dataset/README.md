@@ -1,67 +1,51 @@
-# TTS Audio Evaluation — Dataset
+# TTS Evaluation Dataset
 
-Synthetic dataset demonstrating structured pairwise evaluation of TTS responses.
+## Purpose
 
-## Dataset Purpose
+This dataset contains synthetic records demonstrating pairwise TTS audio evaluation.
 
-The dataset demonstrates how TTS outputs can be evaluated across:
+Each record represents two anonymous audio outputs generated from the same transcript.
+
+The dataset focuses on:
 
 - Audio and Recording Quality
 - Pronunciation Faithfulness
 - Naturalness
 - Overall Preference
+- Dominant Factor
+- Evidence
+- QA
 
-It also includes examples of:
-
-- Close calls
-- Both Bad outcomes
-- Rejection cases
-- Dominant Factor selection
-- QA review
+---
 
 ## Dataset Schema
 
 | Field | Description |
 |---|---|
-| `evaluation_id` | Unique evaluation identifier |
-| `dimension` | Evaluation dimension |
-| `transcript` | Shared transcript |
-| `response_a` | Response A identifier |
-| `response_b` | Response B identifier |
-| `preference` | Selected response |
-| `evidence` | Observable reason |
-| `dominant_factor` | Main factor affecting overall preference |
-| `qa_status` | QA review status |
+| `case_id` | Unique evaluation case |
+| `scenario` | Evaluation scenario |
+| `transcript` | Shared transcript for A and B |
+| `response_a_observation` | Audible observation for A |
+| `response_b_observation` | Audible observation for B |
+| `audio_quality_a` | Audio and Recording Quality assessment for A |
+| `audio_quality_b` | Audio and Recording Quality assessment for B |
+| `pronunciation_a` | Pronunciation Faithfulness assessment for A |
+| `pronunciation_b` | Pronunciation Faithfulness assessment for B |
+| `naturalness_a` | Naturalness assessment for A |
+| `naturalness_b` | Naturalness assessment for B |
+| `overall_preference` | Preferred response |
+| `dominant_factor` | Main factor explaining preference |
+| `evidence` | Observable evidence |
+| `decision` | Evaluation or rejection decision |
+| `qa_status` | QA status |
 
-## Evaluation Dimensions
+---
 
-- Audio and Recording Quality
-- Pronunciation Faithfulness
-- Naturalness
-- Overall Preference
+## Allowed Values
 
-## Preference Values
+### Dimension Assessments
 
-Depending on the dimension, the dataset can contain:
-
-- A
-- B
-- Tie
-- Both Bad
-- Reject
-
-## Data Principles
-
-Each judgment should be:
-
-- Evidence-based
-- Dimension-specific
-- Consistent with the evaluation rubric
-- Independent of speaker identity or target-speaker similarity
-- Traceable to an observable quality difference
-
-## Synthetic Data
-
-All records are synthetic examples created for portfolio demonstration.
-
-No production audio, transcript, evaluator identity, or confidential project information is included.
+```text
+Better
+Worse
+Comparable
