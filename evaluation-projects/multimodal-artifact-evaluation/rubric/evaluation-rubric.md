@@ -1,187 +1,137 @@
-# Multimodal Artifact Evaluation Rubric
+# Multimodal Artifact Evaluation — QA Rubric
 
-## 1. Task Understanding
+## Purpose
 
-Evaluate whether the artifact addresses the requirements described in the prompt and input materials.
-
-### Good
-
-The artifact substantially addresses the stated requirements.
-
-### Bad
-
-The artifact misses important requirements or does not adequately address the task.
+This rubric evaluates the quality of the evaluator's work rather than the quality of the AI artifact itself.
 
 ---
 
-## 2. Artifact Availability
+## 5 — Exceptional
 
-Evaluate whether the artifact becomes usable after the expected loading period.
+The evaluator:
 
-### Good
-
-The artifact loads and provides a usable interface.
-
-### Bad
-
-The artifact remains fundamentally unavailable for evaluation.
-
----
-
-## 3. Interactive Functionality
-
-Evaluate relevant interactions based on the artifact type.
-
-Possible checks include:
-
-- Buttons
-- Menus
-- Forms
-- Navigation
-- Scrolling
-- Mouse controls
-- Keyboard controls
-- Game controls
-- Focus behavior
-
-### Good
-
-Relevant interactions work sufficiently for the requested task.
-
-### Bad
-
-Important interactions fail or prevent meaningful use.
+- Fully understands the prompt and input materials.
+- Opens and inspects both responses.
+- Correctly distinguishes loading from broken/blank states.
+- Applies the 30-second loading rule correctly.
+- Tests relevant interactions thoroughly.
+- Tests game controls when applicable.
+- Evaluates rubric criteria independently.
+- Makes only justified rubric modifications.
+- Keeps rubric modifications neutral.
+- Provides specific observable evidence.
+- Uses rejection only when appropriate.
+- Maintains consistent reasoning throughout the evaluation.
 
 ---
 
-## 4. Rubric Compliance
+## 4 — Strong
 
-Evaluate each task-specific rubric criterion independently.
+The evaluator completes the major evaluation steps correctly.
 
-Each response should receive its own:
-
-- Good
-- Bad
-
-rating.
-
-The evaluator should not convert individual rubric criteria directly into an A/B winner selection.
+Minor omissions may exist, but they do not materially affect the final evaluation.
 
 ---
 
-## 5. Overall Preference
+## 3 — Acceptable
 
-After evaluating the rubric independently, compare the two artifacts overall.
+The evaluator completes the core workflow but has noticeable weaknesses.
 
-The overall comparison should consider:
+Examples:
 
-- Task fulfillment
-- Rubric performance
-- Usability
-- Interaction quality
-- Overall artifact quality
+- Limited interaction testing
+- Weak evidence
+- Minor inconsistency
+- Incomplete rubric explanation
 
----
-
-## 6. Loading vs Broken
-
-### Loading
-
-Indicators include:
-
-- Spinner
-- Progressive rendering
-- Partial interface appearing
-- Continued loading activity
-
-Allow the artifact sufficient time to render before making a broken-interface judgment.
-
-### Broken or Blank
-
-Examples include:
-
-- Persistent blank screen
-- Persistent black screen
-- Blocking error
-- Unusable partial interface
-- Indefinite loading
+The final decision remains generally usable.
 
 ---
 
-## 7. Rejection
+## 2 — Weak
 
-Reject only when the artifact is fundamentally unavailable for evaluation.
+The evaluator misses important parts of the workflow.
 
-Do not reject solely because:
+Examples:
 
-- The artifact looks poor.
-- The output is incomplete.
-- A requirement is missing.
-- Some interactions fail.
-- Game mechanics are broken.
-- The output has low quality.
+- Incomplete artifact inspection
+- Weak loading assessment
+- Limited interaction testing
+- Poor evidence
+- Inconsistent rubric application
 
-These issues should normally be reflected in the rubric evaluation.
-
----
-
-## 8. Rubric Editing
-
-### Remove
-
-Use when a criterion cannot be evaluated from the available materials or is clearly not applicable.
-
-### Clarify
-
-Use when minor wording changes can make the criterion objectively evaluable while preserving the original intent.
-
-### Correct
-
-Use when the criterion directly conflicts with the prompt or references nonexistent material.
-
-Rubric modifications must:
-
-- Preserve original intent.
-- Apply equally to both responses.
-- Be supported by task evidence.
-- Avoid favoring either response.
+The evaluation requires substantial QA review.
 
 ---
 
-## 9. QA Levels
+## 1 — Unacceptable
 
-### 5 — Exceptional
+The evaluator:
 
-- Both artifacts are fully inspected.
-- Loading and broken states are distinguished correctly.
-- Relevant interactions are tested.
-- Rubric criteria are evaluated independently.
-- Rejection is used correctly.
-- Overall judgment is evidence-based.
-- Rubric modifications are justified and unbiased.
+- Does not inspect both outputs.
+- Rejects slow loading without applying the loading rule.
+- Rejects low-quality outputs that are still usable.
+- Fails to reject genuinely broken/blank outputs.
+- Evaluates only by comparison.
+- Modifies the rubric to favor one response.
+- Does not test relevant interactions.
+- Provides unsupported judgments.
 
-### 4 — Strong
+---
 
-- Both artifacts are evaluated accurately.
-- Required interactions are tested.
-- Minor depth or evidence gaps may remain.
+## QA Error Taxonomy
 
-### 3 — Acceptable
+### E1 — Incomplete Inspection
 
-- Overall evaluation is generally reasonable.
-- Interaction testing may be limited.
-- Some evidence or rubric reasoning may be incomplete.
+One or both responses were not properly inspected.
 
-### 2 — Weak
+### E2 — Loading Error
 
-- Artifact inspection is incomplete.
-- Loading and broken states may be confused.
-- Rubric modifications lack sufficient justification.
-- Important interactions may be missed.
+The evaluator incorrectly treats slow loading as broken.
 
-### 1 — Unacceptable
+### E3 — Rejection Error
 
-- Both artifacts are not properly inspected.
-- An output is rejected simply because it is poor quality or slow to load.
-- Rubric changes are made to favor a response.
-- Interactive outputs are not meaningfully tested.
+The evaluator rejects a usable artifact or fails to reject a genuinely broken artifact.
+
+### E4 — Interaction Error
+
+Relevant controls were not tested.
+
+### E5 — Rubric Bias
+
+The evaluator modifies criteria in a way that favors one response.
+
+### E6 — Rubric Misapplication
+
+A criterion is applied incorrectly or inconsistently.
+
+### E7 — Evidence Failure
+
+The evaluator provides conclusions without observable evidence.
+
+### E8 — Comparison Bias
+
+The evaluator judges a response primarily by whether it is better or worse than the other response rather than against the criterion.
+
+---
+
+## Final QA Gate
+
+Before accepting an evaluation, confirm:
+
+```text
+[ ] Prompt understood
+[ ] Input materials reviewed
+[ ] Response A opened
+[ ] Response B opened
+[ ] Loading state checked
+[ ] Broken/blank decision correct
+[ ] Relevant interactions tested
+[ ] Game controls tested when applicable
+[ ] Rubric evaluated independently
+[ ] Rubric changes justified
+[ ] Rubric changes neutral
+[ ] Evidence recorded
+[ ] Overall evaluation completed
+[ ] Rejection decision justified
+[ ] Final QA completed
