@@ -1,75 +1,86 @@
-# Multimodal Artifact Evaluation — Dataset
+# Multimodal Evaluation Dataset
 
-Synthetic dataset demonstrating structured evaluation of AI-generated multimodal artifacts.
+## Purpose
 
-## Dataset Purpose
+This dataset contains synthetic evaluation records designed to demonstrate multimodal artifact evaluation and QA.
 
-The dataset demonstrates how evaluators can record:
+The dataset covers:
 
-- Artifact type
-- Loading state
-- Interactive testing
-- Rubric results
-- Rejection decisions
-- Overall preference
-- Evidence
-- QA status
+- Artifact loading
+- Broken and blank interfaces
+- Interactive behavior
+- Game controls
+- Independent rubric evaluation
+- Rubric modification
+- Evidence-based decisions
+- Rejection handling
+- Evaluation QA
+
+---
 
 ## Dataset Schema
 
 | Field | Description |
 |---|---|
-| `evaluation_id` | Unique evaluation identifier |
-| `artifact_type` | Type of AI-generated artifact |
-| `loading_state_a` | Loading state of Response A |
-| `loading_state_b` | Loading state of Response B |
+| `case_id` | Unique evaluation case |
+| `scenario` | Main evaluation scenario |
+| `task_type` | Artifact or interaction type |
+| `response_a_observation` | Observation for Response A |
+| `response_b_observation` | Observation for Response B |
 | `rubric_result_a` | Rubric result for Response A |
 | `rubric_result_b` | Rubric result for Response B |
-| `interaction_test` | Whether relevant interaction was tested |
-| `rejection` | Whether the task requires rejection |
-| `overall_preference` | Overall comparison |
-| `evidence` | Observable evaluation evidence |
+| `overall_result` | Overall evaluation outcome |
+| `special_action` | Rejection or rubric action |
+| `evidence` | Observable evidence |
 | `qa_status` | QA review status |
 
-## Artifact Types
+---
 
-Examples include:
+## Rubric Result Values
 
-- Website
-- Application
-- Game
-- Visualization
-- Presentation
-- Report
+Allowed values:
 
-## Loading States
+- `Good`
+- `Bad`
+- `Not Evaluated`
 
-- Loaded
-- Loading
-- Broken
-- Blank
+`Not Evaluated` is used when a criterion cannot reasonably be evaluated, such as when the entire artifact is rejected because it is broken or blank.
 
-## Rubric Results
+---
 
-- Good
-- Bad
+## Special Actions
 
-Rubric results are independent for Response A and Response B.
+Possible values include:
 
-## Rejection
+- `None`
+- `Reject`
+- `Remove`
+- `Clarify`
+- `Correct`
 
-Rejection should only be used when the output is fundamentally unavailable for evaluation according to the applicable rules.
+---
 
-## Data Principles
+## Evaluation Principle
 
-The dataset emphasizes:
+The dataset follows one central principle:
 
-- Independent rubric evaluation
-- Evidence-based judgment
-- Interactive testing
+> Artifact quality and artifact validity are separate concepts.
+
+A low-quality artifact should normally remain eligible for evaluation.
+
+A broken or blank artifact may require rejection.
+
+---
+
+## QA
+
+Each record should be checked for:
+
+- Correct schema
+- Consistent field values
+- Evidence supporting the decision
 - Correct rejection handling
-- Consistent QA
+- Neutral rubric treatment
+- No unsupported conclusions
 
-## Synthetic Data
-
-All records are synthetic and created for portfolio demonstration purposes.
+The dataset is synthetic and intended for portfolio demonstration.
