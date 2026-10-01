@@ -1,27 +1,38 @@
-# Vietnamese Speech Annotation — QA Analysis
+# Vietnamese Speech Annotation QA Analysis
 
-## Analysis Objective
+## Objective
 
-This analysis demonstrates how speech annotations can be reviewed for transcription accuracy, annotation consistency, formatting compliance, and rejection accuracy.
+This analysis demonstrates how annotation quality can be evaluated systematically rather than by checking only whether the transcript "looks correct."
 
-The objective is not simply to determine whether the transcript looks grammatically correct.
+The QA process evaluates:
 
-The primary question is:
+- Speech fidelity
+- Written normalization
+- Disfluency handling
+- Non-verbal events
+- Uncertainty
+- Speaker attribution
+- Punctuation
+- Dialect preservation
+- Rejection decisions
+- Overall consistency
 
-> Does the annotation faithfully represent the observable speech while following the annotation rules?
-
-## QA Workflow
+# 1. QA Workflow
 
 ```text
 Audio Observation
       ↓
-Transcript Review
+Transcript Comparison
       ↓
-Speech Event Review
-      ↓
-Tag Validation
+Speech Coverage Check
       ↓
 Normalization Check
+      ↓
+Filler Check
+      ↓
+Non-Verbal Event Check
+      ↓
+Uncertainty Check
       ↓
 Speaker Check
       ↓
